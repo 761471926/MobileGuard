@@ -8,14 +8,11 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 
-
+import cn.edu.gdmec.android.mobileguard.R;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import java.util.HashMap;
-
-import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetUpPasswordDialog;
