@@ -48,6 +48,7 @@
                     android:layout_width="70dp"
                     android:layout_height="30dp"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="27dp"
                     android:background="@drawable/toggle_btn_bg_selector"
                     android:textOff=""

@@ -27,7 +27,6 @@
                     android:gravity="center"
                     android:text="SIM卡绑定"
                     android:textColor="@android:color/white"
-
                     android:textSize="18sp"/>
             </RelativeLayout>
             <LinearLayout

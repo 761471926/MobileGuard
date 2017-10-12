@@ -17,7 +17,8 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_centerInParent="true"
-                android:background="@drawable/security_phone"/>
+                android:background="@drawable/add"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,6 +78,7 @@
                     android:text="远程锁屏"
                     android:textColor="@color/purple"/>
                 <TextView
+                    style="@style/textview16sp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:drawablePadding="5dp"
