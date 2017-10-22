@@ -43,7 +43,6 @@ public class Setup3Activity extends BaseSetupActivity implements View.OnClickLis
         edit.commit();
         startActivityAndFinishSelf(Setup4Activity.class);
     }
-
     @Override
     public void showPre() {
         startActivityAndFinishSelf(Setup2Activity.class);
@@ -57,7 +56,6 @@ public class Setup3Activity extends BaseSetupActivity implements View.OnClickLis
                 break;
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
         super.onActivityResult(requestCode,resultCode,data);
