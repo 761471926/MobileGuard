@@ -40,7 +40,8 @@ public class ContactInfoParser {
                         info.phone = data1;
                     }
                 }
-                if (TextUtils.isEmpty(info.name)&&TextUtils.isEmpty(info.phone))continue;
+                if (TextUtils.isEmpty(info.name) && TextUtils.isEmpty(info.phone))
+                    continue;
                 infos.add(info);
                 dataCursor.close();
             }
@@ -55,6 +56,8 @@ public class ContactInfoParser {
         if(mCursor != null){
             while (mCursor.moveToNext()){
                 ContactInfo info = new ContactInfo();
+                int nameFieldColumnIndex = mCursor.getColumnIndex("name");
+                info.name = mCursor.getString(nameFieldColumnIndex);
                 int numberFieldColumnIndex = mCursor.getColumnIndex("number");
                 info.phone=mCursor.getString(numberFieldColumnIndex);
                 infos.add(info);
