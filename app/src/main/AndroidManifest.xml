@@ -40,6 +40,7 @@
             </intent-filter>
         </receiver>
         <activity android:name=".m2theftguard.ContactSelectActivity"></activity>
+
     </application>
 
 </manifest>
