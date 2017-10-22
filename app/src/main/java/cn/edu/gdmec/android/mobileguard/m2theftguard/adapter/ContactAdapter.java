@@ -41,7 +41,7 @@ public class ContactAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder = null;
-        if(view==null){
+        if(view == null){
             view = View.inflate(context, R.layout.item_list_contact_select,null);
             holder = new ViewHolder();
             holder.mNameTV = (TextView) view.findViewById(R.id.tv_name);
