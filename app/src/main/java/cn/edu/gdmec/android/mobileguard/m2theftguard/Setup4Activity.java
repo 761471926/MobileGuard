@@ -29,7 +29,6 @@ public class Setup4Activity extends BaseSetupActivity{
         mStatusTV = (TextView) findViewById(R.id.tv_setup4_status);
         mToggleButton = (ToggleButton) findViewById(R.id.togglebtn_securityfunction);
         mToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
@@ -55,7 +54,7 @@ public class Setup4Activity extends BaseSetupActivity{
     @Override
     public void showNext() {
         SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean("isSetUp", true);
+        editor.putBoolean("isSetUp",true);
         editor.commit();
         startActivityAndFinishSelf(LostFindActivity.class);
     }

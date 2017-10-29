@@ -31,14 +31,14 @@ public class LostFindActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lost_find);
         msharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
-        if (!isSetup()){
+        if (!isSetUp()){
             startSetUp1Activity();
         }
         initView();
     }
 
-    private boolean isSetup(){
-        return msharedPreferences.getBoolean("isSetup", false);
+    private boolean isSetUp(){
+        return msharedPreferences.getBoolean("isSetUp", false);
     }
     private void initView() {
         TextView mTitleTv = (TextView) findViewById(R.id.tv_title);
