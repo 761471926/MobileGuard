@@ -12,17 +12,19 @@ import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.entity.ContactInfo;
 
 /**
- * Created by Administrator on 2017/10/22.
+ * Created by lt on 2017/10/19.
  */
 
 public class ContactAdapter extends BaseAdapter{
+
     private List<ContactInfo> contactInfos;
     private Context context;
-    public ContactAdapter(List<ContactInfo> contactInfos,Context context){
+    public ContactAdapter(List<ContactInfo> contactInfos, Context context){
         super();
         this.contactInfos = contactInfos;
         this.context = context;
     }
+
     @Override
     public int getCount() {
         return contactInfos.size();
@@ -41,13 +43,13 @@ public class ContactAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder = null;
-        if(view == null){
+        if (view == null){
             view = View.inflate(context, R.layout.item_list_contact_select,null);
             holder = new ViewHolder();
             holder.mNameTV = (TextView) view.findViewById(R.id.tv_name);
             holder.mPhoneTV = (TextView) view.findViewById(R.id.tv_phone);
             view.setTag(holder);
-        }else{
+        }else {
             holder = (ViewHolder) view.getTag();
         }
         holder.mNameTV.setText(contactInfos.get(i).name);

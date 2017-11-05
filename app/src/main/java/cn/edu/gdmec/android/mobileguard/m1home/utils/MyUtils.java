@@ -5,18 +5,19 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 /**
- * Created by Administrator on 2017/9/23.
+ * Created by killer on 2017/9/19.
  */
 
 public class MyUtils {
-    public static String getVersion(Context context) {
+    public static String getVersion(Context context){
         PackageManager packageManager = context.getPackageManager();
         try {
-            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
-            return packageInfo.versionName;
+            PackageInfo packageInfo =  packageManager.getPackageInfo(context.getPackageName(),0);
+            return  packageInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
+            e.printStackTrace( );
             return "";
         }
+
     }
 }
