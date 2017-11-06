@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
-public abstract class BaseSetUpActivity extends AppCompatActivity {
+abstract class BaseSetUpActivity extends AppCompatActivity {
     public SharedPreferences sp;
     private GestureDetector mGestureDetector;
     public abstract void showNext();
