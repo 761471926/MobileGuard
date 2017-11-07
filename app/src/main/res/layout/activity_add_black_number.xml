@@ -41,7 +41,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/coner_white_rec"
-        android:hint="骚扰"
+        android:hint="请输入黑名单类型"
         android:inputType="phone"
         android:paddingLeft="5dp"
         android:textColor="@color/bright_purple"
