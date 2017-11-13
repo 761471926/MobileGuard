@@ -146,8 +146,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
         }
         pagenumber = 0;
         pageBlackNumber.clear();
-        pageBlackNumber
-                .addAll(dao.getPageBlackNumber(pagenumber, pagesize));
+        pageBlackNumber.addAll(dao.getPageBlackNumber(pagenumber, pagesize));
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         }
