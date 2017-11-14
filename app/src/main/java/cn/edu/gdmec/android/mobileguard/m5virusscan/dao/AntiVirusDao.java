@@ -15,6 +15,7 @@ public class AntiVirusDao {
         this.context = context;
         dbname = "/data/data/"+context.getPackageName()+"/files/antivirus.db";
     }
+    //使用apk文件的md5值匹配病毒数据库
     public String checkVirus(String md5){
         String desc = null;
         SQLiteDatabase db = SQLiteDatabase.openDatabase(dbname,null,SQLiteDatabase.OPEN_READONLY);
