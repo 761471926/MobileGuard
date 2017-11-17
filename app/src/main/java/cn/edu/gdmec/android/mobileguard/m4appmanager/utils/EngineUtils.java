@@ -1,9 +1,9 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.utils;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.widget.Toast;
@@ -11,11 +11,6 @@ import android.widget.Toast;
 import java.util.Date;
 
 import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
-
-/**
- * Created by student on 17/11/6.
- */
-
 public class EngineUtils {
 
     public static void shareApplication(Context context, AppInfo appInfo) {
@@ -30,7 +25,7 @@ public class EngineUtils {
     }
 
     public static void startApplication(Context context,AppInfo appInfo) {
-
+        // 打开这个应用程序的入口activity。
         PackageManager pm = context.getPackageManager();
         Intent intent = pm.getLaunchIntentForPackage(appInfo.packageName);
         if (intent != null) {
@@ -58,7 +53,7 @@ public class EngineUtils {
             Toast.makeText(context,"系统应用无法卸载",Toast.LENGTH_LONG).show();
         }
     }
-
+    /**显示应用信息*/
     public static void showApplicationInfo(Context context,AppInfo appInfo){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(appInfo.appName);
@@ -66,6 +61,26 @@ public class EngineUtils {
                 "Install time:"+new Date(appInfo.firstInstallTime).toLocaleString()+"\n"+
                 appInfo.signature+"\n"+
                 "Permissions:"+"\n"+appInfo.requestedPermissions);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    public static void showApplicationActivities(Context context, AppInfo appInfo){
+        PackageManager pm1 = context.getPackageManager();
+        StringBuffer sb = new StringBuffer();
+        ActivityInfo act[] = pm1.getPackageArchiveInfo(appInfo.apkPath, PackageManager.GET_ACTIVITIES).activities;
+        for (int i = 0;i<act.length;i++){
+            sb.append(act[i].toString());
+            sb.append("\n");
+        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(appInfo.appName);
+        builder.setMessage("Activities:"+"\n"+appInfo.activities);
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
