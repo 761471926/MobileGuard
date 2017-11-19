@@ -108,9 +108,8 @@ public class VirusScanActivity extends AppCompatActivity implements View.OnClick
             };
         }.start();
     }
-    /**
-     * 初始化UI控件
-     */
+    // 初始化UI控件
+
     private void initView() {
         findViewById(R.id.rl_titlebar).setBackgroundColor(
                 getResources().getColor(R.color.light_blue));
