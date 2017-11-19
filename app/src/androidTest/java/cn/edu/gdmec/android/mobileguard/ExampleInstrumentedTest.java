@@ -24,5 +24,3 @@ public class ExampleInstrumentedTest {
         assertEquals("cn.edu.gdmec.android.mobileguard", appContext.getPackageName());
     }
 }
-
-
