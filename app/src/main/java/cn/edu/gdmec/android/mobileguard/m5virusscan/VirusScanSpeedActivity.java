@@ -182,7 +182,7 @@ public class VirusScanSpeedActivity extends AppCompatActivity implements View.On
                 break;
             case R.id.btn_canclescan:
                 if (process == total & process > 0) {
-                    // 扫描已完成
+                    // 扫描完成
                     finish();
                 } else if (process > 0 & process < total & isStop == false) {
                     mScanningIcon.clearAnimation();
