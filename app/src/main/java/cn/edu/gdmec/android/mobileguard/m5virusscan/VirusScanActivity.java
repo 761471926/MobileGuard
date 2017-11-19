@@ -71,9 +71,8 @@ public class VirusScanActivity extends AppCompatActivity implements View.OnClick
         }.start();
 
     }
-    /**
-     * 拷贝病毒数据库
-     */
+    //拷贝病毒数据库
+
     private void copyDB(final String dbname,final String fromPath) {
         //大文件的拷贝复制一定要用线程，否则很容易出现ANR
         new Thread(){
