@@ -17,52 +17,59 @@ import cn.edu.gdmec.android.mobileguard.m6cleancache.entity.CacheInfo;
  * Created by student on 17/11/20.
  */
 
-public class CacheCleanAdapter extends BaseAdapter{
+public class CacheCleanAdapter extends BaseAdapter {
     private Context context;
     private List<CacheInfo> cacheInfos;
 
-    public CacheCleanAdapter(Context context,List<CacheInfo> cacheInfos){
-        super();
+
+    public CacheCleanAdapter(Context context,List<CacheInfo> cacheInfos) {
         this.context = context;
         this.cacheInfos = cacheInfos;
-    }
 
+    }
 
     @Override
     public int getCount() {
         return cacheInfos.size();
     }
 
-    @Override
-    public Object getItem(int i) {
-        return cacheInfos.get(i);
-    }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public Object getItem(int position) {
+        return cacheInfos.get(position);
     }
 
+
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder = null;
-        if (view == null){
-            holder = new ViewHolder();
-            view = View.inflate(context, R.layout.item_cacheclean_list,null);
-            holder.mAppIconImgv = (ImageView) view.findViewById(R.id.imgv_appicon_cacheclean);
-            holder.mAppNameTV = (TextView) view.findViewById(R.id.tv_appname_cacheclean);
-            holder.mCacheSizeTV = (TextView) view.findViewById(R.id.tv_appsize_cacheclean);
-            view.setTag(holder);
-        }else{
-            holder = (ViewHolder) view.getTag();
+    public long getItemId(int position) {
+        return position;
+    }
+
+
+
+
+
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder viewHolder = null;
+        if (convertView == null){
+            viewHolder = new ViewHolder();
+            convertView =convertView.inflate(context, R.layout.item_cacheclean_list,null);
+            viewHolder.mAppIconImgv = (ImageView)convertView.findViewById(R.id.imgv_appicon_cacheclean);
+            viewHolder.mAppNameTV = (TextView)convertView.findViewById(R.id.tv_appname_cacheclean);
+            viewHolder.mCacheSizeTV = (TextView)convertView.findViewById(R.id.tv_appsize_cacheclean);
+            convertView.setTag(viewHolder);
+        }else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        CacheInfo cacheInfo = cacheInfos.get(i);
-        holder.mAppIconImgv.setImageDrawable(cacheInfo.appIcon);
-        holder.mAppNameTV.setText(cacheInfo.appName);
-        holder.mCacheSizeTV.setText(Formatter.formatFileSize(context,cacheInfo.cacheSize));
-        return view;
+        CacheInfo cacheInfo = cacheInfos.get(position);
+        viewHolder.mAppIconImgv.setImageDrawable(cacheInfo.appIcon);
+        viewHolder.mAppNameTV.setText(cacheInfo.appName);
+        viewHolder.mCacheSizeTV.setText(Formatter.formatFileSize(context,cacheInfo.cacheSize));
+        return convertView;
     }
-    static  class ViewHolder{
+    class ViewHolder {
         ImageView mAppIconImgv;
         TextView mAppNameTV;
         TextView mCacheSizeTV;
