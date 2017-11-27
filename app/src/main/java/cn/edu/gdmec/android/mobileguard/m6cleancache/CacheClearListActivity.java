@@ -198,3 +198,4 @@ public class CacheClearListActivity extends AppCompatActivity implements View.On
         }
     }
 }
+
