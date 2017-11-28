@@ -11,4 +11,3 @@ public class OperatorSetActivity implements View.OnClickListener {
     public void onClick(View view) {
     }
 }
-
