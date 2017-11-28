@@ -80,8 +80,10 @@ public class EngineUtils {
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(appInfo.appName);
-        builder.setMessage("Activities:"+"\n"+appInfo.activities);
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+        builder.setMessage(sb);
+        builder.setCancelable(false);
+        //builder.setMessage("Activities:"+"\n");
+        builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
