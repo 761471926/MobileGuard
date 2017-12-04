@@ -131,6 +131,7 @@ public class VirusScanActivity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.rl_cloudscanvirus:
                 startActivity(new Intent(this,UrlClient.class));
+                break;
         }
     }
 }
