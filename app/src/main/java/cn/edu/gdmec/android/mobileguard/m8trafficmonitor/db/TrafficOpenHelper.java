@@ -8,16 +8,25 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by student on 17/11/28.
  */
 
-public class TrafficOpenHelper extends SQLiteOpenHelper {
-    public TrafficOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
 
+public class TrafficOpenHelper extends SQLiteOpenHelper {
+    private static final String DB_NAME = "traffic.db";
+    private static final String TABLE_NAME = "traffic";
+    /** 流量 */
+    private final static String GPRS = "gprs";
+    private final static String TIME = "date";
+    public TrafficOpenHelper(Context context) {
+        super(context, DB_NAME, null, 1);
+    }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL("create table " + TABLE_NAME
+                + "(id integer primary key autoincrement," + GPRS
+                + " varchar(255)," + TIME + " datetime)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+
     }
 }
