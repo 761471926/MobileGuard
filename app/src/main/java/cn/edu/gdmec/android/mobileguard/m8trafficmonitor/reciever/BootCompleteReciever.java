@@ -22,4 +22,3 @@ public class BootCompleteReciever extends BroadcastReceiver {
         }
     }
 }
-
