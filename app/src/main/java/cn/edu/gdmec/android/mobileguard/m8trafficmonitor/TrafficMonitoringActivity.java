@@ -297,3 +297,4 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
         super.onDestroy();
     }
 }
+
