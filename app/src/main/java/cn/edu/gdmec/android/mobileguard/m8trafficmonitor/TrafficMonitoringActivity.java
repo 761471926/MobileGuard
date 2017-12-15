@@ -164,7 +164,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                     long left = 0;
                     // 本月已用流量
                     long used = 0;
-                    // 本月超出流量
+
                     long beyond = 0;
                     for (int i = 0; i < split.length; i++) {
                         if (split[i].contains("当月常用流量已用")) {
