@@ -298,3 +298,5 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
     }
 }
 
+
+
