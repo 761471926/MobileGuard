@@ -4,11 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by student on 17/11/28.
- */
-
-
 public class TrafficOpenHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "traffic.db";
     private static final String TABLE_NAME = "traffic";

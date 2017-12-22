@@ -4,8 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.io.File;
-
 public class AntiVirusDao {
     /**
      * 检查某个md5是否是病毒

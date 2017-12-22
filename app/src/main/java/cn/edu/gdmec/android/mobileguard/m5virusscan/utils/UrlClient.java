@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard.m5virusscan;
+package cn.edu.gdmec.android.mobileguard.m5virusscan.utils;
 
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -7,6 +7,10 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+/**
+ * Created by Administrator on 2017/12/22.
+ */
 
 public class UrlClient {
     public static String UrlPost(String url, String content) {

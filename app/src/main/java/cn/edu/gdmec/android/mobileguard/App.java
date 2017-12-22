@@ -3,6 +3,8 @@ package cn.edu.gdmec.android.mobileguard;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
+import android.os.StrictMode;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -13,10 +15,16 @@ import android.util.Log;
  */
 
 public class App extends Application {
+    public static final String APPLOCK_ACTION = "cn.edu.gdmec.android.mobileguard.m9advancedtools.applock";
+    public static final String APPLOCK_CONTENT_URI = "content://cn.edu.gdmec.android.mobileguard.m9advancedtools.applock";
 
     @Override
     public void onCreate() {
         super.onCreate();
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());
+        }
         correctSIM();
     }
 
@@ -33,7 +41,7 @@ public class App extends Application {
             //为了测试在手机序列号上data，已模拟sim卡被更换的情况
             String realsim = tm.getSimSerialNumber();
             //因为虚拟机无法更换sim卡，所以使用虚拟机测试要有此代码，真机测试要注释这段代码
-            realsim = "999";
+            //realsim = "999";
             if (bindsim.equals(realsim)){
                 Log.i("","sim卡未发生变化");
             }else {
