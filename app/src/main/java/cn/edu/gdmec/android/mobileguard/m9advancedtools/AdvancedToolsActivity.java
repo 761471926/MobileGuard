@@ -44,7 +44,7 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.advanceview_applock:
                 //进入程序锁页面
-                startActivity(AppLockActivity.class);
+                //startActivity(AppLockActivity.class);
                 break;
         }
     }
