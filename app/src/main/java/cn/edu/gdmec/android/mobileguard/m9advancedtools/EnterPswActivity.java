@@ -1,16 +1,12 @@
 package cn.edu.gdmec.android.mobileguard.m9advancedtools;
 
-
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
@@ -23,9 +19,7 @@ import cn.edu.gdmec.android.mobileguard.App;
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
 
-
-public class EnterPswActivity extends Activity implements OnClickListener{
-
+public class EnterPswActivity extends AppCompatActivity implements View.OnClickListener{
     private ImageView mAppIcon;
     private TextView mAppNameTV;
     private EditText mPswET;
@@ -38,7 +32,7 @@ public class EnterPswActivity extends Activity implements OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_enter_psw);
+        setContentView(R.layout.activity_enter_psw);
         sp = getSharedPreferences("config", MODE_PRIVATE);
         password = sp.getString("PhoneAntiTheftPWD", null);
         Intent intent = getIntent();
@@ -48,11 +42,10 @@ public class EnterPswActivity extends Activity implements OnClickListener{
         try {
             mAppIcon.setImageDrawable(pm.getApplicationInfo(packagename, 0).loadIcon(pm));
             mAppNameTV.setText(pm.getApplicationInfo(packagename, 0).loadLabel(pm).toString());
-        } catch (NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
     }
-
     /**
      * 初始化控件
      */
@@ -66,15 +59,14 @@ public class EnterPswActivity extends Activity implements OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.imgv_go_enterpsw:
                 //比较密码
                 String inputpsw = mPswET.getText().toString().trim();
                 if(TextUtils.isEmpty(inputpsw)){
                     startAnim();
-                    //将0改为Toast.LENGTH_LONG
-                    Toast.makeText(this, "请输入密码！", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "请输入密码！", Toast.LENGTH_SHORT).show();
                     return;
                 }else{
                     if(!TextUtils.isEmpty(password)){
@@ -95,10 +87,8 @@ public class EnterPswActivity extends Activity implements OnClickListener{
                 break;
         }
     }
-
     private void startAnim() {
-        Animation animation =AnimationUtils.loadAnimation(this, R.anim.shake);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.shake);
         mEnterPswLL.startAnimation(animation);
     }
-
 }

@@ -1,6 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m9advancedtools.adapter;
 
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +11,10 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.edu.gdmec.android.mobileguard.R;
-import cn.edu.gdmec.android.mobileguard.m9advancedtools.entity.AppInfo;
+import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
 
 /**此类可复用，未加锁和已加锁都可以用此Adapter**/
 public class AppLockAdapter extends BaseAdapter {
-
     private List<AppInfo> appInfos;
     private Context context;
 
