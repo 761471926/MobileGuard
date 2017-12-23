@@ -12,19 +12,6 @@ import java.util.Date;
 
 import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.db.dao.TrafficDao;
 
-import android.app.Service;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.TrafficStats;
-import android.os.Binder;
-import android.os.IBinder;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.db.dao.TrafficDao;
-
 public class TrafficMonitoringService extends Service {
     private long mOldRxBytes;
     private long mOldTxBytes;
@@ -33,21 +20,9 @@ public class TrafficMonitoringService extends Service {
     private long usedFlow;
     boolean flag = true;
 
-    public class MyBinder extends Binder {
-
-        public TrafficMonitoringService getService(){
-            return TrafficMonitoringService.this;
-        }
-    }
-    private MyBinder binder = new MyBinder();
-
     @Override
     public IBinder onBind(Intent intent) {
-        return binder;
-    }
-
-    public long getUsedFlow(){
-        return usedFlow;
+        return null;
     }
     @Override
     public void onCreate() {
@@ -56,7 +31,6 @@ public class TrafficMonitoringService extends Service {
         mOldTxBytes = TrafficStats.getMobileTxBytes();
         dao = new TrafficDao(this);
         mSp = getSharedPreferences("config", MODE_PRIVATE);
-        usedFlow = mSp.getLong("usedflow", 0);
         mThread.start();
     }
 

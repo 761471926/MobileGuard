@@ -1,5 +1,6 @@
 package cn.edu.gdmec.android.mobileguard.m9advancedtools.adapter;
 
+
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,11 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.edu.gdmec.android.mobileguard.R;
-import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
+import cn.edu.gdmec.android.mobileguard.m9advancedtools.entity.AppInfo;
 
-
+/**此类可复用，未加锁和已加锁都可以用此Adapter**/
 public class AppLockAdapter extends BaseAdapter {
+
     private List<AppInfo> appInfos;
     private Context context;
 
@@ -26,16 +28,19 @@ public class AppLockAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
+
         return appInfos.size();
     }
 
     @Override
     public Object getItem(int i) {
+
         return appInfos.get(i);
     }
 
     @Override
     public long getItemId(int i) {
+
         return i;
     }
 
@@ -47,7 +52,7 @@ public class AppLockAdapter extends BaseAdapter {
         }else{
             holder = new ViewHolder();
             view = View.inflate(context, R.layout.item_list_applock, null);
-            holder.mAppIconImgv = (ImageView) view.findViewById(R.id.imgv_appicon);
+            holder.mAppIconImgv = (ImageView) view.findViewById( R.id.imgv_appicon);
             holder.mAppNameTV = (TextView) view.findViewById(R.id.tv_appname);
             holder.mLockIcon = (ImageView) view.findViewById(R.id.imgv_lock);
             view.setTag(holder);
@@ -65,6 +70,7 @@ public class AppLockAdapter extends BaseAdapter {
         }
         return view;
     }
+
     static class ViewHolder{
         TextView mAppNameTV;
         ImageView mAppIconImgv;

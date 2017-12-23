@@ -11,6 +11,10 @@ import java.util.List;
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.entity.ContactInfo;
 
+/**
+ * Created by lt on 2017/10/19.
+ */
+
 public class ContactAdapter extends BaseAdapter{
 
     private List<ContactInfo> contactInfos;

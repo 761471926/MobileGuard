@@ -17,13 +17,12 @@ import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetupPasswordDialog;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetUpPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.receiver.MyDeviceAdminReceiver;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.SecurityPhoneActivity;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;
 import cn.edu.gdmec.android.mobileguard.m5virusscan.VirusScanActivity;
-import cn.edu.gdmec.android.mobileguard.m5virusscan.VirusScanSpeedActivity;
 import cn.edu.gdmec.android.mobileguard.m6cleancache.CacheClearListActivity;
 import cn.edu.gdmec.android.mobileguard.m8trafficmonitor.TrafficMonitoringActivity;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.AdvancedToolsActivity;
@@ -75,10 +74,9 @@ public class HomeActivity extends AppCompatActivity {
                     case 6:
                         startActivity(TrafficMonitoringActivity.class);
                         break;
-                    case 7: // 高级工具
+                    case 7:
                         startActivity(AdvancedToolsActivity.class);
                         break;
-
                 }
             }
         });
@@ -118,8 +116,8 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void showSetupPswdDialog(){
-        final SetupPasswordDialog setupPasswordDialog = new SetupPasswordDialog(HomeActivity.this);
-        setupPasswordDialog.setCallBack(new SetupPasswordDialog.MyCallBack(){
+        final SetUpPasswordDialog setupPasswordDialog = new SetUpPasswordDialog(HomeActivity.this);
+        setupPasswordDialog.setCallBack(new SetUpPasswordDialog.MyCallBack(){
             @Override
             public void ok() {
                 String firstPwsd = setupPasswordDialog.mFirstPWDET.getText().toString().trim();
@@ -209,6 +207,4 @@ public class HomeActivity extends AppCompatActivity {
         }
         return true;
     }
-
-
 }

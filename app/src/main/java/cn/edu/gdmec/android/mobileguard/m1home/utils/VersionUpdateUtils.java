@@ -1,5 +1,4 @@
 package cn.edu.gdmec.android.mobileguard.m1home.utils;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
@@ -23,7 +22,6 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,19 +31,21 @@ import cn.edu.gdmec.android.mobileguard.m1home.entity.VersionEntity;
 
 import static android.content.Context.DOWNLOAD_SERVICE;
 
+/**
+ * Created by killer on 2017/9/19.
+ */
 public class VersionUpdateUtils {
-    //声明常量
+
     private static final int MESSAGE_IO_ERROR = 102;
     private static final int MESSAGE_JSON_ERROR = 103;
     private static final int MESSAGE_SHOW_DIALOG = 104;
     private static final int MESSAGE_ENTERHOME = 105;
-    //声明类属性
+
     private String mVersion;
     private Activity context;
     private ProgressDialog mProgressDialog;
     private VersionEntity versionEntity;
 
-    //下一个activtiy的class
     private Class<?> nextActivty;
     //下载完成后的回调
     private DownloadCallback downloadCallback;
@@ -92,6 +92,7 @@ public class VersionUpdateUtils {
             }
         }
     };
+
 
     /**
      * 获取服务器版本号*/
@@ -158,6 +159,7 @@ public class VersionUpdateUtils {
 
     }
 
+
     protected void downloadNewApk(String apkurl){
         DownloadUtils downLoadUtils = new DownloadUtils();
         String filename = "downloadfile";
@@ -195,6 +197,15 @@ public class VersionUpdateUtils {
         //通过该id可以取消任务，重启任务等等，看上面源码中框起来的方法
         downloadId = downloadManager.enqueue(request);
         listener(downloadId,targetFile);
+    }
+
+    //下载完成的广播
+    private class DownloadFinishReceiver extends BroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //下载完成的广播接收者
+            long completeDownloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+        }
     }
 
     private void listener(final long Id,final String filename) {

@@ -11,13 +11,17 @@ import android.widget.TextView;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
-public class SetupPasswordDialog extends Dialog implements View.OnClickListener {
+/**
+ * Created by killer on 2017/10/9.
+ */
+
+public class SetUpPasswordDialog extends Dialog implements View.OnClickListener {
     private TextView mTitleTv;
     public EditText mFirstPWDET;
     public EditText mAffirmET;
     private MyCallBack myCallBack;
 
-    public SetupPasswordDialog(@NonNull Context context) {
+    public SetUpPasswordDialog(@NonNull Context context) {
         super(context,R.style.dialog_custom);
     }
 
