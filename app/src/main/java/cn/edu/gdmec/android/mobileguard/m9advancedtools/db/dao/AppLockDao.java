@@ -12,9 +12,9 @@ import java.util.List;
 import cn.edu.gdmec.android.mobileguard.App;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.db.AppLockOpenHelper;
 
-
+/** 程序锁数据库操作逻辑类 */
 public class AppLockDao {
-    /** 程序锁数据库操作逻辑类 */
+
     private Context context;
     private AppLockOpenHelper openHelper;
     private Uri uri = Uri.parse(App.APPLOCK_CONTENT_URI);
@@ -26,6 +26,7 @@ public class AppLockDao {
 
     /**
      * 添加一条数据
+     * @return
      */
     public boolean insert(String packagename) {
         SQLiteDatabase db = openHelper.getWritableDatabase();
@@ -42,6 +43,8 @@ public class AppLockDao {
 
     /**
      * 删除一条数据
+     * @param packagename
+     * @return
      */
     public boolean delete(String packagename) {
         SQLiteDatabase db = openHelper.getWritableDatabase();
@@ -57,6 +60,8 @@ public class AppLockDao {
 
     /***
      * 查询某个包名是否存在
+     * @param packagename
+     * @return
      */
     public boolean find(String packagename) {
         SQLiteDatabase db = openHelper.getReadableDatabase();
@@ -74,11 +79,12 @@ public class AppLockDao {
 
     /**
      * 查询表中所有的包名
+     * @return
      */
     public List<String> findAll(){
         SQLiteDatabase db = openHelper.getReadableDatabase();
         Cursor cursor = db.query("applock", null, null, null, null, null, null);
-        List<String> packages = new ArrayList<String> ();
+        List<String> packages = new ArrayList<String>();
         while (cursor.moveToNext()) {
             String string = cursor.getString(cursor.getColumnIndex("packagename"));
             packages.add(string);
