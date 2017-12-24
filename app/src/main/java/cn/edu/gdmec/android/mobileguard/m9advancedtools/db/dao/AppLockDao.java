@@ -24,10 +24,6 @@ public class AppLockDao {
         openHelper = new AppLockOpenHelper(context);
     }
 
-    /**
-     * 添加一条数据
-     * @return
-     */
     public boolean insert(String packagename) {
         SQLiteDatabase db = openHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -41,11 +37,6 @@ public class AppLockDao {
         }
     }
 
-    /**
-     * 删除一条数据
-     * @param packagename
-     * @return
-     */
     public boolean delete(String packagename) {
         SQLiteDatabase db = openHelper.getWritableDatabase();
         int rownum = db.delete("applock", "packagename=?",
@@ -58,11 +49,6 @@ public class AppLockDao {
         }
     }
 
-    /***
-     * 查询某个包名是否存在
-     * @param packagename
-     * @return
-     */
     public boolean find(String packagename) {
         SQLiteDatabase db = openHelper.getReadableDatabase();
         Cursor cursor = db.query("applock", null, "packagename=?",
@@ -77,10 +63,6 @@ public class AppLockDao {
         }
     }
 
-    /**
-     * 查询表中所有的包名
-     * @return
-     */
     public List<String> findAll(){
         SQLiteDatabase db = openHelper.getReadableDatabase();
         Cursor cursor = db.query("applock", null, null, null, null, null, null);

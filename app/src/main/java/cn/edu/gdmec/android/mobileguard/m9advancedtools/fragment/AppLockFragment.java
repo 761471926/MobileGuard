@@ -67,30 +67,30 @@ public class AppLockFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_applock, null);
+        View view =  inflater.inflate(R.layout.fragment_app_lock, null);
         mLockTV = (TextView) view.findViewById(R.id.tv_lock);
         mLockLV = (ListView) view.findViewById(R.id.lv_lock);
-        mLockCB = (CheckBox) view.findViewById(R.id.cb_applock_service);
-        boolean running = SystemInfoUtils.isServiceRunning(context, "cn.edu.gdmec.t00385.android2016.myguard.m9advancedtools.service.AppLockService");
-        mLockCB.setChecked(running);
-        mLockCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                //Intent intent = new Intent(context, AppLockService.class);
-                final Intent intent = new Intent();
-                ComponentName componentName = new ComponentName("cn.edu.gdmec.android.mobileguard"
-                        ,"cn.edu.gdmec.android.mobileguard.m9advancedtools.service.AppLockService");
-                intent.setComponent(componentName);
-                //intent.setAction("cn.edu.gdmec.android.mobileguard.m9advancedtools.m9advancedtools.service.AppLockService");
-
-                if (b){
-                    context.startService(intent);
-                }else{
-                    context.stopService(intent);
-                }
-
-            }
-        });
+//        mLockCB = (CheckBox) view.findViewById(R.id.cb_applock_service);
+//        boolean running = SystemInfoUtils.isServiceRunning(context, "cn.edu.gdmec.t00385.android2016.myguard.m9advancedtools.service.AppLockService");
+//        mLockCB.setChecked(running);
+//        mLockCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                //Intent intent = new Intent(context, AppLockService.class);
+//                final Intent intent = new Intent();
+//                ComponentName componentName = new ComponentName("cn.edu.gdmec.android.mobileguard"
+//                        ,"cn.edu.gdmec.android.mobileguard.m9advancedtools.service.AppLockService");
+//                intent.setComponent(componentName);
+//                //intent.setAction("cn.edu.gdmec.android.mobileguard.m9advancedtools.m9advancedtools.service.AppLockService");
+//
+//                if (b){
+//                    context.startService(intent);
+//                }else{
+//                    context.stopService(intent);
+//                }
+//
+//            }
+//        });
         return view;
     }
 

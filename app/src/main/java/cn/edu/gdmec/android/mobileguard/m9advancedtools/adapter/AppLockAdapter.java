@@ -26,19 +26,16 @@ public class AppLockAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-
         return appInfos.size();
     }
 
     @Override
     public Object getItem(int i) {
-
         return appInfos.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-
         return i;
     }
 

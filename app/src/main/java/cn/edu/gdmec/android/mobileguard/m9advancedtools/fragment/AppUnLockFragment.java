@@ -1,5 +1,6 @@
 package cn.edu.gdmec.android.mobileguard.m9advancedtools.fragment;
 
+
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,7 +25,6 @@ import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.utils.AppInfoParser;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.adapter.AppLockAdapter;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.db.dao.AppLockDao;
-
 public class AppUnLockFragment extends Fragment {
     private TextView mUnLockTV;
     private ListView mUnLockLV;
@@ -54,7 +54,7 @@ public class AppUnLockFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_appunlock, null);
+        View view =  inflater.inflate(R.layout.fragment_app_unlock, null);
         mUnLockTV = (TextView) view.findViewById(R.id.tv_unlock);
         mUnLockLV = (ListView) view.findViewById(R.id.lv_unlock);
         return view;
@@ -70,11 +70,10 @@ public class AppUnLockFragment extends Fragment {
         getActivity().getContentResolver().registerContentObserver(uri, true,
                 new ContentObserver(new Handler()) {
                     @Override
-                    public void onChange(boolean selfChange) {
+                    public void onChange(boolean selfChange){
                         fillData();
                     }
-                }
-        );
+        });
     }
 
     public void fillData() {
