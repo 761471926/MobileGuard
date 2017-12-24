@@ -70,10 +70,11 @@ public class AppUnLockFragment extends Fragment {
         getActivity().getContentResolver().registerContentObserver(uri, true,
                 new ContentObserver(new Handler()) {
                     @Override
-                    public void onChange(boolean selfChange){
+                    public void onChange(boolean selfChange) {
                         fillData();
                     }
-        });
+                }
+        );
     }
 
     public void fillData() {
